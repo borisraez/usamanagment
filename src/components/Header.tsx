@@ -82,15 +82,18 @@ export const Header: React.FC<HeaderProps> = ({
             </div>
             <div className="min-w-0">
               <div className="flex items-center gap-1.5 flex-wrap">
-                <h1 className="text-xs sm:text-sm md:text-base font-extrabold tracking-tight text-white truncate">
-                  SALUD AMBIENTAL
+                <h1 className="text-xs sm:text-sm md:text-base font-extrabold tracking-tight text-white truncate flex items-center gap-1">
+                  <span className="text-emerald-400 font-black tracking-wider">ATENSA</span>
+                  <span className="text-slate-500 font-normal hidden sm:inline">•</span>
+                  <span className="text-slate-200 text-xs sm:text-sm font-bold truncate">Salud Ambiental</span>
                 </h1>
-                <span className="text-[9px] sm:text-[10px] font-mono bg-emerald-500/20 text-emerald-300 border border-emerald-400/30 px-1.5 py-0.2 rounded-full font-bold shrink-0">
-                  TRAZABILIDAD
+                <span className="text-[9px] sm:text-[10px] font-mono bg-emerald-500/20 text-emerald-300 border border-emerald-400/30 px-1.5 py-0.2 rounded-full font-bold shrink-0 flex items-center gap-1">
+                  <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse"></span>
+                  OPERATIVO
                 </span>
               </div>
               <p className="text-[10px] sm:text-[11px] text-slate-400 hidden sm:block truncate">
-                Núcleo Operativo Autónomo • Gestión de Atenciones • Conformidad QR
+                Atención de Servicios de Salud Ambiental • Registro en Campo & Conformidad Digital
               </p>
             </div>
           </div>

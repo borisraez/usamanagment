@@ -13,8 +13,12 @@ import {
   CreditCard, 
   Briefcase,
   KeyRound,
-  Info
+  Info,
+  Activity,
+  Smartphone,
+  Sparkles
 } from 'lucide-react';
+import atensaBgImage from '../assets/images/atensa_bg_tecnico_app_1788589285639.jpg';
 import { SystemUser } from '../types';
 import { storageService } from '../services/storageService';
 
@@ -110,29 +114,82 @@ export const LoginView: React.FC<LoginViewProps> = ({
 
   return (
     <div className="min-h-screen bg-slate-950 flex flex-col justify-center py-6 sm:py-12 px-4 sm:px-6 lg:px-8 relative overflow-hidden text-white">
-      {/* Background ambient lighting - Emerald/Green Salud Ambiental */}
+      {/* Background image: Field technician / engineer registering services on mobile, softly mimetized in blue */}
+      <div className="absolute inset-0 pointer-events-none overflow-hidden z-0">
+        <img
+          src={atensaBgImage || '/atensa_bg_tecnico.jpg'}
+          alt="Técnico de Salud Ambiental registrando solicitud y recorrido operativo desde su celular"
+          className="w-full h-full object-cover object-center sm:object-[center_20%] opacity-55 sm:opacity-60 filter brightness-105 contrast-105 saturate-85 transition-opacity duration-700"
+          onError={(e) => {
+            // Fallback to public folder path if bundler path differs
+            const target = e.currentTarget;
+            if (target.src !== window.location.origin + '/atensa_bg_tecnico.jpg') {
+              target.src = '/atensa_bg_tecnico.jpg';
+            }
+          }}
+        />
+        {/* Soft atmospheric blue-slate gradient overlay that mimetizes with the deep blue theme */}
+        <div className="absolute inset-0 bg-gradient-to-b from-slate-950/75 via-slate-950/45 to-slate-950/90" />
+        {/* Subtle radial vignette that leaves the technician and phone clearly visible while softening the edges */}
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,_transparent_30%,_rgba(2,6,23,0.8)_90%)]" />
+        {/* Soft blue ambient color wash */}
+        <div className="absolute inset-0 bg-blue-900/20 mix-blend-overlay" />
+      </div>
+
+      {/* Background ambient lighting - Emerald & Teal pulses */}
       <div className="absolute top-0 left-1/4 w-96 h-96 bg-emerald-600/10 rounded-full blur-3xl pointer-events-none" />
       <div className="absolute bottom-0 right-1/4 w-96 h-96 bg-teal-600/10 rounded-full blur-3xl pointer-events-none" />
 
       <div className="sm:mx-auto sm:w-full sm:max-w-md z-10">
         {/* Brand Header */}
         <div className="text-center">
-          <div className="inline-flex items-center justify-center w-14 h-14 rounded-2xl bg-gradient-to-br from-emerald-500 to-teal-700 shadow-lg shadow-emerald-600/30 mb-3 border border-emerald-400/30">
-            <Leaf className="w-8 h-8 text-white" />
-          </div>
-          
-          <div className="inline-block mb-1">
-            <span className="text-[11px] font-bold uppercase tracking-wider text-emerald-400 bg-emerald-950/80 border border-emerald-800/60 px-3 py-1 rounded-full">
-              Salud Ambiental & Vigilancia Sanitaria
-            </span>
+          {/* Static Clean Logo without animation */}
+          <div className="inline-flex items-center justify-center mb-3">
+            <div className="w-15 h-15 sm:w-16 sm:h-16 rounded-2xl bg-gradient-to-br from-emerald-500 via-teal-600 to-slate-900 shadow-xl shadow-emerald-950/50 border border-emerald-400/40 flex items-center justify-center">
+              <div className="relative flex items-center justify-center">
+                <Leaf className="w-8 h-8 text-white" />
+                <Activity className="w-4 h-4 text-emerald-200 absolute -bottom-1 -right-1 drop-shadow" />
+              </div>
+            </div>
           </div>
 
-          <h2 className="text-xl sm:text-2xl font-extrabold text-white tracking-tight">
-            Sistema de Gestión y Trazabilidad
-          </h2>
-          <p className="mt-1 text-xs text-slate-400 max-w-sm mx-auto">
-            Plataforma operativa de atenciones técnicas, registro de evidencias y conformidad digital con firma en campo.
+          {/* Health status indicator with animated ECG rhythm line (without the text label) */}
+          <div className="flex items-center justify-center mb-2.5">
+            <div className="inline-flex items-center justify-center px-3 py-1 rounded-full bg-slate-900/90 border border-emerald-500/30 shadow-inner">
+              {/* Dynamic SVG ECG waveform */}
+              <svg className="w-20 sm:w-24 h-4 text-emerald-400 overflow-visible" viewBox="0 0 100 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path
+                  d="M 0 12 L 20 12 L 28 12 L 34 2 L 40 22 L 46 8 L 52 16 L 58 12 L 100 12"
+                  stroke="currentColor"
+                  strokeWidth="2.5"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  className="animate-ecg-path"
+                />
+              </svg>
+            </div>
+          </div>
+
+          {/* Title ATENSA with Acronym */}
+          <div className="space-y-0.5">
+            <h1 className="text-4xl sm:text-5xl font-black tracking-tight text-white uppercase drop-shadow-md">
+              <span className="text-white">ATEN</span>
+              <span className="text-emerald-400">SA</span>
+            </h1>
+            <p className="text-xs sm:text-sm font-bold text-emerald-300 tracking-wide uppercase">
+              Atención de Servicios de Salud Ambiental
+            </p>
+          </div>
+
+          <p className="mt-2 text-xs text-slate-300/90 max-w-sm mx-auto leading-relaxed">
+            Registro en campo mediante dispositivo móvil, trazabilidad de atenciones sanitarias y conformidad digital con firma en tiempo real.
           </p>
+
+          {/* Mobile inspection purpose pill */}
+          <div className="mt-2.5 inline-flex items-center gap-1.5 px-2.5 py-1 bg-slate-900/80 border border-slate-800 rounded-lg text-[11px] text-slate-400">
+            <Smartphone className="w-3.5 h-3.5 text-emerald-400 shrink-0" />
+            <span>App móvil optimizada para técnicos e inspectores en campo</span>
+          </div>
         </div>
 
         {/* Tab Switcher: Iniciar Sesión vs Crear Cuenta */}

@@ -17,3 +17,72 @@ html, body {
 *, ::before, ::after {
   box-sizing: border-box;
 }
+
+/* ATENSA Vital Pulse Animations with realistic cardiac rhythm (lub-dub) */
+@keyframes vital-pulse-rhythm {
+  0% {
+    transform: scale(1);
+    filter: drop-shadow(0 0 6px rgba(16, 185, 129, 0.4));
+  }
+  12% {
+    transform: scale(1.12);
+    filter: drop-shadow(0 0 20px rgba(16, 185, 129, 0.9));
+  }
+  22% {
+    transform: scale(0.98);
+    filter: drop-shadow(0 0 8px rgba(16, 185, 129, 0.5));
+  }
+  32% {
+    transform: scale(1.07);
+    filter: drop-shadow(0 0 16px rgba(52, 211, 153, 0.8));
+  }
+  44% {
+    transform: scale(1);
+    filter: drop-shadow(0 0 6px rgba(16, 185, 129, 0.4));
+  }
+  100% {
+    transform: scale(1);
+    filter: drop-shadow(0 0 6px rgba(16, 185, 129, 0.4));
+  }
+}
+
+@keyframes vital-ring-ripple {
+  0% {
+    transform: scale(0.9);
+    opacity: 0.8;
+  }
+  20% {
+    transform: scale(1.35);
+    opacity: 0.5;
+  }
+  40% {
+    transform: scale(1.7);
+    opacity: 0;
+  }
+  100% {
+    transform: scale(1.7);
+    opacity: 0;
+  }
+}
+
+@keyframes ecg-dash {
+  0% {
+    stroke-dashoffset: 600;
+  }
+  100% {
+    stroke-dashoffset: 0;
+  }
+}
+
+.animate-vital-pulse {
+  animation: vital-pulse-rhythm 1.4s cubic-bezier(0.25, 0.46, 0.45, 0.94) infinite;
+}
+
+.animate-vital-ring {
+  animation: vital-ring-ripple 1.4s cubic-bezier(0.25, 0.46, 0.45, 0.94) infinite;
+}
+
+.animate-ecg-path {
+  stroke-dasharray: 120 480;
+  animation: ecg-dash 2s linear infinite;
+}

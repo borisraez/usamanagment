@@ -233,9 +233,11 @@ export const TecnicoDashboard: React.FC<TecnicoDashboardProps> = ({
             <div className="w-8 h-8 sm:w-9 sm:h-9 rounded-xl bg-gradient-to-tr from-emerald-600 to-teal-500 flex items-center justify-center text-white shadow-md shadow-emerald-950/40 shrink-0">
               <Leaf className="w-4 h-4 sm:w-4.5 sm:h-4.5" />
             </div>
-            <div className="hidden sm:flex flex-col justify-center min-w-0">
-              <span className="font-bold text-xs sm:text-sm text-white tracking-tight leading-tight truncate">
-                Salud Ambiental
+            <div className="flex flex-col justify-center min-w-0">
+              <span className="font-extrabold text-xs sm:text-sm text-white tracking-tight leading-tight truncate flex items-center gap-1">
+                <span className="text-emerald-400 font-black">ATENSA</span>
+                <span className="text-slate-400 font-normal hidden sm:inline">•</span>
+                <span className="text-slate-200 hidden sm:inline font-bold">Salud Ambiental</span>
               </span>
               <span className="text-[10px] sm:text-xs text-slate-300 font-medium leading-tight truncate">
                 {cleanFullName}

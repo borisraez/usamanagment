@@ -1,6 +1,6 @@
 {
-  "name": "Sistema de Gestión de Atenciones - Salud Ambiental",
-  "description": "Sistema operativo de trazabilidad, gestión y conformidad de atenciones técnicas en Salud Ambiental con arquitectura desacoplada y sincronización segura.",
+  "name": "ATENSA - Atención de Servicios de Salud Ambiental",
+  "description": "ATENSA (Atención de Servicios de Salud Ambiental) - Sistema de trazabilidad, registro en campo y conformidad digital de atenciones técnicas de salud ambiental.",
   "requestFramePermissions": ["camera"],
   "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
 }

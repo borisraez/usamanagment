@@ -137,8 +137,12 @@ export const ConformidadPublicView: React.FC<ConformidadPublicViewProps> = ({
             <ShieldCheck className="w-5 h-5" />
           </div>
           <div>
-            <h1 className="text-xs sm:text-sm font-bold text-white tracking-tight">Salud Ambiental • Validación de Conformidad</h1>
-            <p className="text-[10px] sm:text-xs text-slate-400">Verificación criptográfica y firma digital en campo</p>
+            <h1 className="text-xs sm:text-sm font-bold text-white tracking-tight flex items-center gap-1.5">
+              <span className="text-emerald-400 font-black">ATENSA</span>
+              <span className="text-slate-500">•</span>
+              <span>Validación de Conformidad</span>
+            </h1>
+            <p className="text-[10px] sm:text-xs text-slate-400">Atención de Servicios de Salud Ambiental • Firma Digital QR</p>
           </div>
         </div>
 
